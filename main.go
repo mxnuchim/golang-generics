@@ -57,8 +57,7 @@ func main() {
 
 	userQueue := queue.New[User]()
 	userQueue.Enqueue(User{name: "Posha Alabi", email: "posha@example.com", password: "xxxx"}).
-	Enqueue(User{name: "Manuchim Oliver", email: "manuchim@example.com", password: "xxxx"}).
-	Enqueue(User{name: "Angela Simmons", email: "angela@example.com", password: "xxxx"})
+	Enqueue(User{name: "Manuchim Oliver", email: "manuchim@example.com", password: "xxxx"})
 
 	fmt.Println(userQueue)
 }
