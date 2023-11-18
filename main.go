@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/mxnuchim/golang-generics/list"
+	"github.com/mxnuchim/golang-generics/queue"
 )
 
 type User struct {
@@ -14,6 +15,8 @@ type User struct {
 
 
 func main() {
+
+	fmt.Println("\n\n <-- Linked List -->")
 	// Golang generics example with linked list for any data type
 	linkedList := list.New[int]()
 	linkedList.PushFront(90)
@@ -38,4 +41,24 @@ func main() {
 		fmt.Println("User name --> ", userNode.Value().name)
 		userNode = userNode.Next()
 	}
+
+	fmt.Println("\n\n <-- Queue -->")
+
+	// in this case, the queue will be expanded as the number of items to be added exceeds the initial length of items array (10)
+	q := queue.New[int]()
+	for i := 1; i <= 11; i++ {
+		q.Enqueue(i * 2)
+	}
+
+	fmt.Println(q)
+
+
+	//Realistic use case with users
+
+	userQueue := queue.New[User]()
+	userQueue.Enqueue(User{name: "Posha Alabi", email: "posha@example.com", password: "xxxx"}).
+	Enqueue(User{name: "Manuchim Oliver", email: "manuchim@example.com", password: "xxxx"}).
+	Enqueue(User{name: "Angela Simmons", email: "angela@example.com", password: "xxxx"})
+
+	fmt.Println(userQueue)
 }
